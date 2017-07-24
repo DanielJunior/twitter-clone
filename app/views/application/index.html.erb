@@ -4,7 +4,11 @@
     </li>
 <% else %>
     <li>
-      <%= link_to('Login', new_user_session_path)  %>
+      <%= link_to('Login', new_user_session_path) %>
     </li>
 <% end %>
 <h1>Olá, <%= current_user.name %></h1>
+
+<div class="round-image-5">
+  <%= image_tag(current_user.avatar.url(:thumb)) %>
+</div>

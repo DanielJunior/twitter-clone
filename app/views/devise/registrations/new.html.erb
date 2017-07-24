@@ -12,6 +12,9 @@
     <%= f.label :email, class: "sr-only" %>
     <%= f.email_field :email, class: "form-control", placeholder: "Email address" %>
 
+    <%= f.label :avatar, class: "sr-only" %>
+    <%= f.file_field :avatar, class: "form-control", text: "Choose an avatar" %>
+
     <%= f.label :password, class: "sr-only" %>
     <%= f.password_field :password, class: "form-control signup-field", placeholder: "Password", autocomplete: "off" %>
     <% if @minimum_password_length %>
