@@ -1,0 +1,12 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/sti/workspace/twitter-clone/spec/support/factory_girl.rb": [
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1500923284
+  }
+}
