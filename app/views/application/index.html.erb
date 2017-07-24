@@ -1,14 +1,5 @@
-<% if user_signed_in? %>
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-    </li>
-<% else %>
-    <li>
-      <%= link_to('Login', new_user_session_path) %>
-    </li>
-<% end %>
-<h1>Olá, <%= current_user.name %></h1>
+<%= render partial: 'application/profile_sidebar' %>
+<div class="container body-padding radius">
 
-<div class="round-image-5">
-  <%= image_tag(current_user.avatar.url(:thumb)) %>
+  <h1>Olá!</h1>
 </div>

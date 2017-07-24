@@ -1,0 +1,58 @@
+nav.navbar.navbar-default.navbar-fixed-top {
+    padding-left: 4%;
+    padding-right: 2%;
+}
+
+.body-padding {
+    padding-top: 70px;
+}
+
+.dropdown-menu > li > a:hover {
+    color: white;
+    background-color: #0088CC;
+    background-image: none;
+}
+
+body {
+    background-color: white !important;
+}
+
+.container {
+    background-color: #EEEEEE;
+    /*background-color: #2E2F30;*/
+    margin-left: 21%;
+    margin-top: 2%;
+    padding-left: 2% !important;
+    padding-top: 0.5%;
+}
+
+.navbar-fixed-left {
+    background-color: #1DA1F2;
+    margin-top: 2%;
+    margin-left: 5%;
+    padding-top: 1%;
+    width: 15%;
+    position: fixed;
+    height: 30%;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+    float: none; /* Cancel default li float: left */
+    width: 139px;
+}
+
+.navbar-fixed-left + .container {
+    padding-left: 160px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+    margin-top: -50px;
+    margin-left: 140px;
+}
+
+.radius {
+    border-radius: 5%;
+    -moz-border-radius: 5%;
+    -webkit-border-radius: 5%;
+}
