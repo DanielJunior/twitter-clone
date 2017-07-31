@@ -1,0 +1,27 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit tweet</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(tweet) do |f| %>
+            <div class="form-group">
+              <%= f.label :content, class: "sr-only" %>
+              <%= f.text_area :content, rows: 2, cols: 30, class: "form-control", placeholder: "Write something..." %>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <%= button_tag(type: "submit", class: "btn btn-small btn-primary") do %>
+                  Save changes
+              <% end %>
+            </div>
+        <% end %>
+
+        </div>
+  </div>
+</div>

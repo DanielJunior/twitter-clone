@@ -1,8 +1,17 @@
 <%= render partial: 'profile_sidebar', locals: {user: @dashboard.user} %>
 
-<div class="container body-padding">
+<div class="feed-container body-padding">
 
   <%= render partial: 'tweets/form', locals: {tweet: @dashboard.new_tweet} %>
+  <% unless flash[:errors].blank? %>
+      <% flash[:errors].each do |key, value| %>
+          <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong><%= key%> </strong><%= value.join(',') %></div>
+      <% end %>
+  <% end %>
   <%= render partial: 'application/tabs', locals: {active_tab: @dashboard.active_tab} %>
   <div class="body_content">
     <%= render partial: 'tweets/tweets', locals: {tweets: @dashboard.my_tweets} %>

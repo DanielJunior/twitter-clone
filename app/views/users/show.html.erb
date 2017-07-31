@@ -1,0 +1,18 @@
+<div class="container body-padding">
+
+  <div class="row">
+    <div class="center">
+      <div class="navbar profile-image-background radius center">
+        <%= image_tag(@user.avatar.url(:thumb)) %>
+      </div>
+      <h3><strong>Name:</strong> <%= @user.name %></h3>
+      <h3><strong>About:</strong> <%= @user.description %></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <h3>Tweets: </h3>
+    <%= render partial: 'tweets/tweets', locals: {tweets: @user.tweets} %>
+  </div>
+
+</div>
