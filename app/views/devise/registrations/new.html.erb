@@ -1,13 +1,13 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin"}) do |f| %>
-    <h2 class="form-signin-heading">Please sign in</h2>
+    <h2 class="form-signin-heading center">Join us</h2>
 
     <%= devise_error_messages! %>
 
-      <%= f.label :name, class: "sr-only"%>
-      <%= f.text_field :name, class: "form-control", placeholder: "Your name goes here", autofocus: true %>
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Your name goes here", autofocus: true %>
 
-      <%= f.label :description, class: "sr-only" %>
-      <%= f.text_area :description, class: "form-control", placeholder: "Brief" %>
+    <%= f.label :description, class: "sr-only" %>
+    <%= f.text_area :description, class: "form-control", placeholder: "Brief" %>
 
     <%= f.label :email, class: "sr-only" %>
     <%= f.email_field :email, class: "form-control", placeholder: "Email address" %>
@@ -26,7 +26,7 @@
 
 
     <div class="actions">
-      <%= f.submit "Sign up", id: "btn-signup", class: "btn btn-lg btn-primary btn-block" %>
+      <%= f.submit "Sign up", id: "btn-signup", class: "btn btn-lg btn-success btn-block" %>
     </div>
 
     <br/>
@@ -34,6 +34,3 @@
     <%= render "devise/shared/links" %>
 
 <% end %>
-
-
-</div> <!-- /container -->

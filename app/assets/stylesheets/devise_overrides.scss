@@ -1,0 +1,11 @@
+#error_explanation {
+  //@extend .alert, .alert-success;
+  h2{
+    font-size: 100%;
+  }
+  ul{
+    li{
+      font-style: italic;
+    }
+  }
+}
