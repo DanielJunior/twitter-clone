@@ -1,0 +1,9 @@
+<div class="navbar navbar-fixed-left radius">
+  <div class="profile-image center radius">
+    <%= image_tag(user.avatar.url(:thumb)) %>
+  </div>
+
+  <h4 class="profile-name"><strong><%= user.name %></strong></h4>
+  <p class="profile-resume"><strong>Resume: </strong><%= user.description %></p>
+
+</div>

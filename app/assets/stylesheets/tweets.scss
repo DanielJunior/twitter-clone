@@ -1,0 +1,22 @@
+// Place all the styles related to the Tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#tweet-form_container {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.tweet-head {
+  img {
+    float: left;
+    width: 2%;
+    height: 2%;
+    background: #555;
+  }
+
+  h3 {
+    position: relative;
+    left: 1%;
+  }
+}

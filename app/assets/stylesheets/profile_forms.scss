@@ -11,7 +11,11 @@ body {
 }
 
 .form-signin {
-  @extend .form-margin-padd
+  @extend .form-margin-padd;
+
+  input[type="submit"] {
+    margin-top: 2%;
+  }
 }
 
 .form-signin .form-signin-heading,
@@ -49,13 +53,9 @@ body {
   margin-bottom: 1%;
 }
 
-input[type="submit"] {
-  margin-top: 2%;
-}
-
 .form-cancel {
   @extend .form-margin-padd;
   border: 1px solid;
   border-radius: 2%;
-  border-color: red ;
+  border-color: red;
 }

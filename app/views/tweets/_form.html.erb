@@ -1,0 +1,13 @@
+<div id="tweet-form_container">
+  <%= form_for(tweet, url: tweet_path(tweet), html: {class: "form-inline"}, method: :post) do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="form-group">
+        <%= f.label :content, class: "sr-only" %>
+        <%= f.text_area :content, rows: 2, class: "form-control", placeholder: "Write something" %>
+      </div>
+
+      <%= button_tag(type: "submit", class: "btn btn-small btn-success") do %>
+          Tweet <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+      <% end %>
+  <% end %>
+</div>

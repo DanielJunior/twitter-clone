@@ -1,5 +1,8 @@
 <%= render partial: 'application/profile_sidebar' %>
+
 <div class="container body-padding radius">
 
-  <h1>Olá!</h1>
+  <%= render partial: 'tweets/form', locals: {tweet: @dashboard.new_tweet} %>
+  <%= render partial: 'application/tabs' %>
+
 </div>
