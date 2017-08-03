@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :tweet do
-    content "MyText"
-    user nil
+    content "My tweet"
+    user
   end
 end
