@@ -6,4 +6,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
+  def search
+    @users = User.find_by_fuzzy_name(params[:q])
+  end
 end

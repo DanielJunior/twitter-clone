@@ -1,0 +1,9 @@
+<%= form_tag(search_users_path, class: "navbar-form navbar-left", method: :get) do |f| %>
+    <div class="form-group">
+      <%= text_field_tag :q, nil, class: "form-control", placeholder: "Find users" %>
+    </div>
+    <%= button_tag(class: "btn btn-default") do %>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+
+    <% end %>
+<% end %>

@@ -85,6 +85,10 @@ body {
   border-top: hidden;
   margin-bottom: 2%;
 }
+.with_border_top{
+  border-top: 0.1px solid;
+  border-color: gainsboro;
+}
 
 .time-right{
   float: right;

@@ -1,0 +1,22 @@
+<%= render partial: 'profile_sidebar', locals: {user: current_user} %>
+
+<div class="feed-container body-padding">
+
+  <% unless flash[:errors].blank? %>
+      <% flash[:errors].each do |key, value| %>
+          <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong><%= key %> </strong><%= value.join(',') %></div>
+      <% end %>
+  <% end %>
+  <h2>Results for search:</h2>
+  <div class="body_content with_border_top">
+    <% if !@users.empty? %>
+        <%= render partial: 'list', locals: {users: @users} %>
+    <% else %>
+        <div class="alert alert-warning" role="alert">No results found!</div>
+    <% end %>
+  </div>
+</div>

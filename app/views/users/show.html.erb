@@ -7,6 +7,30 @@
       </div>
       <h3><strong>Name:</strong> <%= @user.name %></h3>
       <h3><strong>About:</strong> <%= @user.description %></h3>
+
+      <%= link_to '#', class: "btn btn-primary" do %>
+          <span class="badge"><%= @user.tweets.count %></span> Tweets
+      <% end %>
+      <%= link_to '#', class: "btn btn-primary" do %>
+          <span class="badge"><%= @user.followers.count %></span> Followers
+      <% end %>
+      <%= link_to '#', class: "btn btn-primary" do %>
+          <span class="badge"><%= @user.following.count %></span> Following
+      <% end %>
+
+      <% if current_user.id != @user.id %>
+          <div style="margin-top: 1%">
+            <% if !current_user.following?(@user) %>
+                <%= link_to '#', class: "btn btn-success" do %>
+                    <span class="glyphicon glyphicon-ok"></span> Follow
+                <% end %>
+            <% else %>
+                <%= link_to '#', class: "btn btn-danger" do %>
+                    <span class="glyphicon glyphicon-remove"></span> Unfollow
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
     </div>
   </div>
 

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  fuzzily_searchable :name
   validates_presence_of :name
   validates_presence_of :description
 
