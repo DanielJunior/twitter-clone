@@ -44,15 +44,22 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
-  # gem 'rails-controller-testing'
+  gem 'rails-controller-testing'
   gem 'pry'
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'awesome_print'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
+  gem 'vcr'
+  gem 'sandi_meter'
 end
 
 group :test do
   gem 'simplecov', :require => false
+  gem 'database_cleaner'
+  gem 'webmock'
 end
 
 

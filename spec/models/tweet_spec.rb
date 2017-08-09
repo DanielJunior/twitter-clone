@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Tweet, type: :model do
 
-  subject(:tweet) {FactoryGirl.build :tweet}
+  let(:user) { FactoryGirl.create(:user)}
+  subject(:tweet) {FactoryGirl.build(:tweet, user: user)}
 
   describe 'validations' do
 

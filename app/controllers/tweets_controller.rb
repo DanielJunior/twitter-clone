@@ -14,7 +14,6 @@ class TweetsController < ApplicationController
       flash[:errors] = @tweet.errors.messages
     end
     redirect_to users_path
-
   end
 
   def destroy
