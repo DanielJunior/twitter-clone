@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  load_and_authorize_resource
 
   def create
     @tweet = Tweet.create(tweet_params)

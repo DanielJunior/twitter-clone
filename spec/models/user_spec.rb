@@ -59,7 +59,7 @@ RSpec.describe User, type: :model do
             @u2 = FactoryGirl.build :user, {email: u1.email}
             @u2.valid?
           end
-          it{expect(@u2).to_not be_valid}
+          it {expect(@u2).to_not be_valid}
           it {expect(@u2.errors[:email]).to include("has already been taken")}
         end
       end
@@ -76,7 +76,33 @@ RSpec.describe User, type: :model do
 
     describe 'avatar' do
       context 'when present' do
-        it{is_expected.to be_valid}
+        it {is_expected.to be_valid}
+      end
+    end
+  end
+
+  describe 'methods' do
+    describe '.follow' do
+      context 'when follow a user' do
+        before do
+          @other_user = FactoryGirl.create(:user, email: 'test@test.com')
+          user.follow(@other_user)
+        end
+        it 'should have other user as following' do
+          expect(user.following?(@other_user)).to be true
+        end
+      end
+    end
+    describe '.unfollow' do
+      context 'when unfollow a user' do
+        before do
+          @other_user = FactoryGirl.create(:user, email: 'test@test.com')
+          user.follow(@other_user)
+          user.unfollow(@other_user)
+        end
+        it {
+          expect(user.following?(@other_user)).to be false
+        }
       end
     end
   end
