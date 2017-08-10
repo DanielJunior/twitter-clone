@@ -32,4 +32,9 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def feed
+    Tweet.where(user_id: self.following.pluck(:id))
+        #.or(Tweet.where(user_id: self.id))
+  end
 end

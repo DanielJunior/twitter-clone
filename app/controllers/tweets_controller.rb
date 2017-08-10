@@ -1,6 +1,10 @@
 class TweetsController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    @facade = TweetFacade.new current_user, params[:user_id]
+  end
+
   def create
     @tweet = Tweet.create(tweet_params)
     if @tweet.errors.any?

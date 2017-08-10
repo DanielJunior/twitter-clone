@@ -1,0 +1,11 @@
+<%= render partial: 'users/profile_sidebar', locals: {user: @facade.user} %>
+
+<div class="feed-container body-padding">
+
+  <%= render partial: 'application/errors', locals: {errors: flash[:errors]} %>
+
+  <h2><%= @facade.title %></h2>
+  <div class="body_content with_border_top">
+    <%= render partial: 'tweets', locals: {tweets: @facade.tweets} %>
+  </div>
+</div>

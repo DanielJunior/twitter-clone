@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe UserFacade do
+describe IndexFacade do
 
   before do
     @user = FactoryGirl.create(:user)
-    @facade = UserFacade.new @user, nil
+    @facade = IndexFacade.new @user, nil
   end
 
   describe '.my_tweets' do

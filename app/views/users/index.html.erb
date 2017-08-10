@@ -3,17 +3,17 @@
 <div class="feed-container body-padding">
 
   <%= render partial: 'tweets/form', locals: {tweet: @dashboard.new_tweet} %>
-  <% unless flash[:errors].blank? %>
-      <% flash[:errors].each do |key, value| %>
-          <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <strong><%= key%> </strong><%= value.join(',') %></div>
-      <% end %>
-  <% end %>
-  <%= render partial: 'application/tabs', locals: {active_tab: @dashboard.active_tab} %>
+
+  <%= render partial: 'application/errors', locals: {errors: flash[:errors]} %>
+
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active" >
+      <a href="#">
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Feed
+      </a>
+    </li>
+  </ul>
   <div class="body_content">
-    <%= render partial: 'tweets/tweets', locals: {tweets: @dashboard.my_tweets} %>
+    <%= render partial: 'tweets/tweets', locals: {tweets: @dashboard.my_feed} %>
   </div>
 </div>

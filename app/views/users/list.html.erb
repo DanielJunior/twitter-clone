@@ -1,0 +1,22 @@
+<%= render partial: 'profile_sidebar', locals: {user: @facade.user} %>
+
+<div class="feed-container body-padding">
+
+  <%= render partial: 'application/errors', locals: {errors: flash[:errors]} %>
+
+  <h2><%= @facade.title %></h2>
+  <div class="body_content with_border_top">
+    <% if !@facade.results.blank? %>
+        <ul class="list-group">
+          <% @facade.results.each do |user| %>
+              <li class="list-group-item list-group-item-info tweet-head">
+                <%= image_tag(user.avatar.url(:thumb)) %>
+                <span class="panel-title"> <%= link_to user.name, user %> </span>
+              </li>
+          <% end %>
+        </ul>
+    <% else %>
+        <div class="alert alert-warning" role="alert"><%= @facade.not_found_title%></div>
+    <% end %>
+  </div>
+</div>

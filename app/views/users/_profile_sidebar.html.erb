@@ -4,5 +4,17 @@
   </div>
 
   <h4 class="profile-name"><strong><%= link_to user.name, user %></strong></h4>
+  <div class="center medium-margin-top">
+    <%= link_to tweets_path(user_id: user.id), class: "btn btn-xs btn-primary small-margin-top" do %>
+        <span class="badge"><%= user.tweets.count %></span> Tweets
+    <% end %>
 
+    <%= link_to followers_user_path(user), class: "btn btn-xs btn-primary small-margin-top" do %>
+        <span class="badge"><%= user.followers.count %></span> Followers
+    <% end %>
+
+    <%= link_to following_user_path(user), class: "btn btn-xs btn-primary small-margin-top" do %>
+        <span class="badge"><%= user.following.count %></span> Following
+    <% end %>
+  </div>
 </div>

@@ -8,24 +8,24 @@
       <h3><strong>Name:</strong> <%= @user.name %></h3>
       <h3><strong>About:</strong> <%= @user.description %></h3>
 
-      <%= link_to '#', class: "btn btn-primary" do %>
+      <%= link_to tweets_path(user_id: @user.id), class: "btn btn-primary" do %>
           <span class="badge"><%= @user.tweets.count %></span> Tweets
       <% end %>
-      <%= link_to '#', class: "btn btn-primary" do %>
+      <%= link_to followers_user_path(@user), class: "btn btn-primary" do %>
           <span class="badge"><%= @user.followers.count %></span> Followers
       <% end %>
-      <%= link_to '#', class: "btn btn-primary" do %>
+      <%= link_to following_user_path(@user), class: "btn btn-primary" do %>
           <span class="badge"><%= @user.following.count %></span> Following
       <% end %>
 
       <% if current_user.id != @user.id %>
-          <div style="margin-top: 1%">
+          <div class="small-margin-top">
             <% if !current_user.following?(@user) %>
-                <%= link_to '#', class: "btn btn-success" do %>
+                <%= link_to follow_user_path(@user), class: "btn btn-success", method: :post do %>
                     <span class="glyphicon glyphicon-ok"></span> Follow
                 <% end %>
             <% else %>
-                <%= link_to '#', class: "btn btn-danger" do %>
+                <%= link_to unfollow_user_path(@user), class: "btn btn-danger", method: :delete do %>
                     <span class="glyphicon glyphicon-remove"></span> Unfollow
                 <% end %>
             <% end %>

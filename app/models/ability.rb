@@ -10,9 +10,11 @@ class Ability
 
   private
   def defining_abilities user
-    can :show, Tweet
+    can [:show, :create], Tweet
     can [:update, :destroy], Tweet, id: user.tweets.pluck(:id)
+    can :read, Tweet
     can [:update, :destroy], User, id: user.id
+    can :create, User
   end
   #   if user.admin?
   #     can :manage, :all
