@@ -3,6 +3,7 @@ class TweetsController < ApplicationController
 
   def index
     @facade = TweetFacade.new current_user, params[:user_id]
+    flash[:errors] = @facade.errors
   end
 
   def create

@@ -1,11 +1,12 @@
-<%= render partial: 'users/profile_sidebar', locals: {user: @facade.user} %>
+<%= render partial: 'users/profile_sidebar', locals: {user: @facade.current_user} %>
 
 <div class="feed-container body-padding">
 
-  <%= render partial: 'application/errors', locals: {errors: flash[:errors]} %>
-
-  <h2><%= @facade.title %></h2>
-  <div class="body_content with_border_top">
-    <%= render partial: 'tweets', locals: {tweets: @facade.tweets} %>
-  </div>
+  <%= render partial: 'application/errors', locals: {errors: flash.now[:errors]} %>
+  <% if flash.now[:errors].blank? %>
+      <h2><%= @facade.title %></h2>
+      <div class="body_content with_border_top">
+        <%= render partial: 'tweets', locals: {tweets: @facade.tweets} %>
+      </div>
+  <% end %>
 </div>

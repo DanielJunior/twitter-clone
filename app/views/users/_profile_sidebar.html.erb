@@ -9,11 +9,11 @@
         <span class="badge"><%= user.tweets.count %></span> Tweets
     <% end %>
 
-    <%= link_to followers_user_path(user), class: "btn btn-xs btn-primary small-margin-top" do %>
+    <%= link_to relationships_path(type: Relationship::FOLLOWERS), class: "btn btn-xs btn-primary small-margin-top" do %>
         <span class="badge"><%= user.followers.count %></span> Followers
     <% end %>
 
-    <%= link_to following_user_path(user), class: "btn btn-xs btn-primary small-margin-top" do %>
+    <%= link_to relationships_path(type: Relationship::FOLLOWING), class: "btn btn-xs btn-primary small-margin-top" do %>
         <span class="badge"><%= user.following.count %></span> Following
     <% end %>
   </div>

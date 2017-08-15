@@ -9,7 +9,32 @@ RSpec.describe TweetsController, type: :controller do
   subject(:tweet) {FactoryGirl.build(:tweet, user: @user)}
   let(:valid_attributes) {tweet.attributes.except('id', 'created_at', 'updated_at')}
   let(:invalid_attributes) {FactoryGirl.build(:invalid_tweet, user: @user).attributes.except('id', 'created_at', 'updated_at')}
+  let(:another_user) {FactoryGirl.create(:another_user)}
 
+  describe 'GET #index' do
+    context 'with authenticated user' do
+      before :each do
+        login_with @user
+      end
+      context 'with valid user_id' do
+        it {
+          get :index, params: {user_id: another_user.id}
+          expect(response).to render_template :index
+        }
+        it {
+          get :index, params: {user_id: another_user.id}
+          expect(assigns(:facade)).to be_a(TweetFacade)
+        }
+      end
+      context 'without invalid user_id' do
+        it {
+          get :index, params: {user_id: 10000}
+          expect(flash[:errors]).to_not be_empty
+        }
+      end
+    end
+
+  end
   describe 'POST #create' do
     context 'with authenticated user' do
       before :each do
@@ -28,7 +53,6 @@ RSpec.describe TweetsController, type: :controller do
           expect(assigns(:tweet)).to be_persisted
         }
       end
-
       context 'without valid attributes' do
         it {
           expect {

@@ -11,21 +11,21 @@
       <%= link_to tweets_path(user_id: @user.id), class: "btn btn-primary" do %>
           <span class="badge"><%= @user.tweets.count %></span> Tweets
       <% end %>
-      <%= link_to followers_user_path(@user), class: "btn btn-primary" do %>
+      <%= link_to relationships_path(type: Relationship::FOLLOWERS), class: "btn btn-primary" do %>
           <span class="badge"><%= @user.followers.count %></span> Followers
       <% end %>
-      <%= link_to following_user_path(@user), class: "btn btn-primary" do %>
+      <%= link_to relationships_path(type: Relationship::FOLLOWING), class: "btn btn-primary" do %>
           <span class="badge"><%= @user.following.count %></span> Following
       <% end %>
 
       <% if current_user.id != @user.id %>
           <div class="small-margin-top">
             <% if !current_user.following?(@user) %>
-                <%= link_to follow_user_path(@user), class: "btn btn-success", method: :post do %>
+                <%= link_to relationships_path(id: @user), class: "btn btn-success", method: :post do %>
                     <span class="glyphicon glyphicon-ok"></span> Follow
                 <% end %>
             <% else %>
-                <%= link_to unfollow_user_path(@user), class: "btn btn-danger", method: :delete do %>
+                <%= link_to relationship_path(@user), class: "btn btn-danger", method: :delete do %>
                     <span class="glyphicon glyphicon-remove"></span> Unfollow
                 <% end %>
             <% end %>

@@ -2,6 +2,7 @@ module UsersList
 
   class UsersListFacade
     attr_reader :user
+    attr_accessor :query
 
     def initialize user_id, query=nil
       @user = User.find(user_id)

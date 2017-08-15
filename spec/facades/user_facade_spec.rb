@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-describe IndexFacade do
+describe UserDashboardFacade do
 
   before do
     @user = FactoryGirl.create(:user)
-    @facade = IndexFacade.new @user, nil
+    @facade = UserDashboardFacade.new @user
   end
 
-  describe '.my_tweets' do
-    it {expect(@facade.my_tweets).to eq(@user.tweets)}
+  describe '.my_feed' do
+    it {expect(@facade.my_feed).to match_array(@user.feed)}
   end
 
   describe '.new_tweet' do

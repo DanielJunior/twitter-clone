@@ -1,14 +1,21 @@
 class TweetFacade
-  attr_reader :user
-  attr_reader :tweets
+  attr_reader :current_user
+  attr_accessor :user
 
   def initialize current_user, user_id
-    @user = current_user
-    @tweets = Tweet.where(user_id: user_id)
-    @tweet_owner = @tweets.first.user unless @tweets.blank?
+    @current_user = current_user
+    @user = User.find_by_id(user_id)
+  end
+
+  def tweets
+    @tweets = @user.tweets.order("created_at DESC") unless @user.blank?
   end
 
   def title
-    !@tweet_owner.blank? && (@tweet_owner.id != @user.id) ? "Tweets from #{@tweet_owner.name}" : "My tweets:"
+    !@user.blank? && (@user.id != @current_user.id) ? "Tweets from #{@user.name}" : "My tweets:"
+  end
+
+  def errors
+    @user.blank? ? {"User": ["not found!"]} : nil
   end
 end

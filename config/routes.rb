@@ -8,11 +8,6 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    member do
-      get 'followers'
-      get 'following'
-      post 'follow'
-      delete 'unfollow'
-    end
   end
+  resources :relationships, only: [:index, :create, :destroy]
 end
