@@ -1,25 +1,24 @@
-class RelationshipFacade
-  attr_reader :user
+class RelationshipFacade < DefaultFacade
 
   def initialize current_user
-    @user = current_user
+    super current_user
   end
 
   def user_list_for type
-    RELATIONSHIPS[type.to_i].call(user.id)
+    RELATIONSHIPS[type.to_i].call(current_user)
   end
 
   private
-  def self.followers user_id
-    UsersList.facade_for("followers", user_id)
+  def self.followers user
+    UsersList.facade_for("followers", user)
   end
 
-  def self.following user_id
-    UsersList.facade_for("following", user_id)
+  def self.following user
+    UsersList.facade_for("following", user)
   end
 
   RELATIONSHIPS = {
-      Relationship::FOLLOWERS => lambda {|user_id| followers user_id},
-      Relationship::FOLLOWING => lambda {|user_id| following user_id}
+      Relationship::FOLLOWERS => lambda {|user| followers user},
+      Relationship::FOLLOWING => lambda {|user| following user}
   }
 end

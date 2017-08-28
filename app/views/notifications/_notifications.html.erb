@@ -1,0 +1,26 @@
+<% if !notifications.blank? %>
+    <% notifications.each do |notification| %>
+        <div class="panel <%= color_for_notification notification %> ">
+          <div class="panel-heading">
+            <h3 class="panel-title inline"><%= link_to notification.message, "#" %></h3>
+
+            <%= link_to notification, method: :delete do %>
+                <span class="right glyphicon glyphicon-trash sm-margin-left"></span>
+            <% end %>
+
+            <%= link_to notification, method: :put do %>
+                <% if notification.read %>
+                    <span class="right glyphicon glyphicon-eye-close sm-margin-left"></span>
+                <% else %>
+                    <span class="right glyphicon glyphicon-eye-open sm-margin-left"></span>
+                <% end %>
+            <% end %>
+
+            <span class="right"><%= notification.created_at %></span>
+          </div>
+        </div>
+
+    <% end %>
+<% else %>
+    <div class="alert alert-warning" role="alert">No notifications available!</div>
+<% end %>

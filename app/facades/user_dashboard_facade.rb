@@ -1,12 +1,12 @@
-class UserDashboardFacade
+class UserDashboardFacade < DefaultFacade
   attr_reader :current_user
 
   def initialize current_user
-    @current_user = current_user
+    super current_user
   end
 
   def my_feed
-    @my_feed ||= current_user.feed.desc
+    @my_feed ||= Tweet.feed current_user
   end
 
   def new_tweet

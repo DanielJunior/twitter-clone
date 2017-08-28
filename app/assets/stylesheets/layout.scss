@@ -90,7 +90,25 @@ body {
   border-color: gainsboro;
 }
 
-.time-right{
+.to-right-top{
   float: right;
   margin-top: -2%;
+}
+
+.right{
+  float: right;
+}
+
+.sm-margin-left{
+  margin-left: 1%;
+}
+.badge-notify{
+  background:red;
+  position:relative;
+  top: -1%;
+  left: -2%
+}
+
+.inline{
+  display: inline;
 }

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @dashboard = UserDashboardFacade.new current_user
-    flash[:errors] = @dashboard.errors
+    @facade = UserDashboardFacade.new current_user
+    flash[:errors] = @facade.errors
   end
 
   def show
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @facade = UsersList.facade_for "search", current_user.id, params[:q]
+    @facade = UsersList.facade_for "search", current_user, params[:q]
     render 'users/list'
   end
 end

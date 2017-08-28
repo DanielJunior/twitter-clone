@@ -1,8 +1,8 @@
-<%= render partial: 'profile_sidebar', locals: {user: @dashboard.current_user} %>
+<%= render partial: 'profile_sidebar', locals: {user: @facade.current_user} %>
 
 <div class="feed-container body-padding">
 
-  <%= render partial: 'tweets/form', locals: {tweet: @dashboard.new_tweet} %>
+  <%= render partial: 'tweets/form', locals: {tweet: @facade.new_tweet} %>
 
   <%= render partial: 'application/errors', locals: {errors: flash.now[:errors]} %>
 
@@ -14,6 +14,6 @@
     </li>
   </ul>
   <div class="body_content">
-    <%= render partial: 'tweets/tweets', locals: {tweets: @dashboard.my_feed} %>
+    <%= render partial: 'tweets/tweets', locals: {tweets: @facade.my_feed} %>
   </div>
 </div>

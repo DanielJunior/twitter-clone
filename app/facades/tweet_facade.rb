@@ -1,9 +1,8 @@
-class TweetFacade
-  attr_reader :current_user
+class TweetFacade < DefaultFacade
   attr_accessor :user
 
   def initialize current_user, user_id
-    @current_user = current_user
+    super current_user
     @user = User.find_by_id(user_id)
   end
 

@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:index, :create, :destroy]
+  resources :notifications, only: [:index, :update, :destroy]
+
+  mount ActionCable.server => '/cable'
 end

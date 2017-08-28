@@ -23,7 +23,7 @@ RSpec.describe UsersController, type: :controller do
     end
     context 'with valid user_id' do
       it {expect(response).to render_template('index')}
-      it {expect(assigns(:dashboard)).to be_a(UserDashboardFacade)}
+      it {expect(assigns(:facade)).to be_a(UserDashboardFacade)}
     end
   end
 

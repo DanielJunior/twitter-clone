@@ -98,6 +98,32 @@
         null,
         null
       ],
+      "/home/sti/workspace/twitter-clone/spec/controllers/notifications_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/sti/workspace/twitter-clone/app/controllers/notifications_controller.rb": [
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
       "/home/sti/workspace/twitter-clone/spec/controllers/relationships_controller_spec.rb": [
         1,
         null,
@@ -563,6 +589,21 @@
         null,
         null
       ],
+      "/home/sti/workspace/twitter-clone/app/facades/default_facade.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        30,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
       "/home/sti/workspace/twitter-clone/spec/facades/users_list_spec.rb": [
         1,
         null,
@@ -678,7 +719,6 @@
         null,
         1,
         1,
-        1,
         null,
         1,
         22,
@@ -753,6 +793,23 @@
         null,
         null
       ],
+      "/home/sti/workspace/twitter-clone/spec/helpers/notifications_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
       "/home/sti/workspace/twitter-clone/spec/helpers/relationships_helper_spec.rb": [
         1,
         null,
@@ -804,6 +861,53 @@
         1,
         null
       ],
+      "/home/sti/workspace/twitter-clone/spec/jobs/notification_broadcast_job_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/sti/workspace/twitter-clone/app/jobs/notification_broadcast_job.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/home/sti/workspace/twitter-clone/app/jobs/application_job.rb": [
+        1,
+        null
+      ],
+      "/home/sti/workspace/twitter-clone/spec/models/notification_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/sti/workspace/twitter-clone/app/models/notification.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        17,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/home/sti/workspace/twitter-clone/spec/models/relationship_spec.rb": [
         1,
         null,
@@ -838,12 +942,20 @@
         1,
         1,
         1,
+        1,
+        null,
+        1,
+        1,
         null,
         1,
         1,
         null,
         1,
-        1,
+        17,
+        17,
+        17,
+        null,
+        null,
         null
       ],
       "/home/sti/workspace/twitter-clone/spec/models/trigram_spec.rb": [
@@ -925,7 +1037,11 @@
         null,
         1,
         null,
-        2,
+        1,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/home/sti/workspace/twitter-clone/spec/models/user_spec.rb": [
@@ -1055,7 +1171,6 @@
       ],
       "/home/sti/workspace/twitter-clone/app/facades/relationship_facade.rb": [
         1,
-        1,
         null,
         1,
         4,
@@ -1098,6 +1213,7 @@
         11,
         11,
         11,
+        11,
         null,
         null,
         null,
@@ -1125,6 +1241,6 @@
         null
       ]
     },
-    "timestamp": 1502831508
+    "timestamp": 1503950533
   }
 }

@@ -20,6 +20,7 @@ class User < ApplicationRecord
            dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :notifications
 
   def follow(other_user)
     following << other_user
@@ -33,8 +34,4 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def feed
-    Tweet.where(user_id: self.following.pluck(:id))
-        #.or(Tweet.where(user_id: self.id))
-  end
 end

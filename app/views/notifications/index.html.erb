@@ -1,0 +1,9 @@
+<%= render partial: 'users/profile_sidebar', locals: {user: @facade.current_user, notifications: @facade.no_read_notifications} %>
+
+<div class="feed-container body-padding">
+
+  <h2><%= @facade.title %></h2>
+  <div class="body_content with_border_top">
+    <%= render partial: 'notifications', locals: {notifications: @facade.notifications} %>
+  </div>
+</div>

@@ -1,11 +1,10 @@
 module UsersList
 
-  class UsersListFacade
-    attr_reader :user
+  class UsersListFacade < DefaultFacade
     attr_accessor :query
 
-    def initialize user_id, query=nil
-      @user = User.find(user_id)
+    def initialize current_user, query=nil
+      super current_user
       @query = query
     end
 
@@ -39,7 +38,7 @@ module UsersList
 
   class FollowersListFacade < UsersListFacade
     def results
-      @user.followers
+      current_user.followers
     end
 
     def not_found_title
@@ -53,7 +52,7 @@ module UsersList
 
   class FollowingListFacade < UsersListFacade
     def results
-      @user.following
+      current_user.following
     end
 
     def not_found_title

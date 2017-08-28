@@ -5,7 +5,7 @@
             <%= image_tag(tweet.user.avatar.url(:thumb)) %>
             <h3 class="panel-title"><%= link_to tweet.user.name, tweet.user %></h3>
 
-            <span class="time-right"><%= tweet.updated_at %></span>
+            <span class="to-right-top"><%= tweet.updated_at %></span>
           </div>
           <div class="panel-body">
             <%= tweet.content %>

@@ -15,6 +15,7 @@ class Ability
     can :read, Tweet
     can [:update, :destroy], User, id: user.id
     can :create, User
+    can :manage, Notification, id: user.notifications.pluck(:id)
   end
   #   if user.admin?
   #     can :manage, :all
