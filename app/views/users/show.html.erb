@@ -3,29 +3,29 @@
   <div class="row">
     <div class="center">
       <div class="navbar profile-image-background radius center">
-        <%= image_tag(@user.avatar.url(:thumb)) %>
+        <%= image_tag(@facade.user.avatar.url(:thumb)) %>
       </div>
-      <h3><strong>Name:</strong> <%= @user.name %></h3>
-      <h3><strong>About:</strong> <%= @user.description %></h3>
+      <h3><strong>Name:</strong> <%= @facade.user.name %></h3>
+      <h3><strong>About:</strong> <%= @facade.user.description %></h3>
 
-      <%= link_to tweets_path(user_id: @user.id), class: "btn btn-primary" do %>
-          <span class="badge"><%= @user.tweets.count %></span> Tweets
+      <%= link_to tweets_path(user_id: @facade.user.id), class: "btn btn-primary" do %>
+          <span class="badge"><%= @facade.user.tweets.count %></span> Tweets
       <% end %>
       <%= link_to relationships_path(type: Relationship::FOLLOWERS), class: "btn btn-primary" do %>
-          <span class="badge"><%= @user.followers.count %></span> Followers
+          <span class="badge"><%= @facade.user.followers.count %></span> Followers
       <% end %>
       <%= link_to relationships_path(type: Relationship::FOLLOWING), class: "btn btn-primary" do %>
-          <span class="badge"><%= @user.following.count %></span> Following
+          <span class="badge"><%= @facade.user.following.count %></span> Following
       <% end %>
 
-      <% if current_user.id != @user.id %>
+      <% if current_user.id != @facade.user.id %>
           <div class="small-margin-top">
-            <% if !current_user.following?(@user) %>
-                <%= link_to relationships_path(id: @user), class: "btn btn-success", method: :post do %>
+            <% if !current_user.following?(@facade.user) %>
+                <%= link_to relationships_path(id: @facade.user), class: "btn btn-success", method: :post do %>
                     <span class="glyphicon glyphicon-ok"></span> Follow
                 <% end %>
             <% else %>
-                <%= link_to relationship_path(@user), class: "btn btn-danger", method: :delete do %>
+                <%= link_to relationship_path(@facade.user), class: "btn btn-danger", method: :delete do %>
                     <span class="glyphicon glyphicon-remove"></span> Unfollow
                 <% end %>
             <% end %>
@@ -36,7 +36,7 @@
 
   <div class="row">
     <h3>Tweets: </h3>
-    <%= render partial: 'tweets/tweets', locals: {tweets: @user.tweets} %>
+    <%= render partial: 'tweets/tweets', locals: {tweets: @facade.user.tweets} %>
   </div>
 
 </div>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @facade = UserFacade.new current_user, params[:id]
   end
 
   def search
