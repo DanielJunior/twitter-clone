@@ -10,10 +10,15 @@ class Notification < ApplicationRecord
 
   def perform_notification
     post_notification_job
+    post_notification_email
   end
 
   def post_notification_job
     NotificationBroadcastJob.perform_later self
+  end
+
+  def post_notification_email
+    UserMailer.follow_notification(self.user).deliver_later
   end
 
   def toggle_active!
