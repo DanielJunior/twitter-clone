@@ -16,6 +16,16 @@
                 <% end %>
             <% end %>
 
+
+            <% if !notification.relationship.accepted? %>
+
+                <%= link_to relationship_path(id: notification.relationship), method: :put do %>
+                    <!--<#% if notification.read %>-->
+                    <span class="right glyphicon glyphicon-thumbs-up sm-margin-left"></span>
+                    <!--<#% end %>-->
+                <% end %>
+            <% end %>
+
             <span class="right"><%= notification.created_at %></span>
           </div>
         </div>

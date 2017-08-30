@@ -7,7 +7,7 @@ class DefaultFacade
   end
 
   def no_read_notifications
-    current_user.notifications.no_read_yet
+    current_user.notifications.no_read
   end
 
 end

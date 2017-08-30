@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :notification do
+    relationship nil
     message "MyString"
-    user nil
     read false
   end
 end

@@ -18,9 +18,14 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: "Relationship",
            foreign_key: "followed_id",
            dependent: :destroy
-  has_many :following, through: :active_relationships, source: :followed
-  has_many :followers, through: :passive_relationships, source: :follower
-  has_many :notifications
+  has_many :following, -> {where(relationships: {accepted: true})}, through: :active_relationships, source: :followed
+  has_many :pending_following, -> {where(relationships: {accepted: false})}, through: :active_relationships, source: :followed
+  has_many :followers, -> {where(relationships: {accepted: true})}, through: :passive_relationships, source: :follower
+
+
+  def notifications
+    Notification.by_user self
+  end
 
   def follow(other_user)
     following << other_user
@@ -32,6 +37,14 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def has_pending_following?(other_user)
+    pending_following.include?(other_user)
+  end
+
+  def can_follow?(other_user)
+    return !following?(other_user) && !has_pending_following?(other_user)
   end
 
 end

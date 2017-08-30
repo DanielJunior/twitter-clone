@@ -1,12 +1,19 @@
 class Notification < ApplicationRecord
-  belongs_to :user
+  belongs_to :relationship
+
   after_create_commit :perform_notification
 
-  scope :no_read_yet, -> {
-    where(read: false)
-  }
+  scope :no_read, -> {where(read: false)}
 
   scope :desc, -> {order(created_at: :desc)}
+
+  scope :by_user, ->(user) {
+    joins(:relationship).where(relationships: {followed: user.id})
+  }
+
+  def user
+    self.relationship.followed
+  end
 
   def perform_notification
     post_notification_job

@@ -3,23 +3,19 @@ class TweetsController < ApplicationController
 
   def index
     @facade = TweetFacade.new current_user, params[:user_id]
-    flash[:errors] = @facade.errors
   end
 
   def create
     @tweet = Tweet.create(tweet_params)
-    if @tweet.errors.any?
-      flash[:errors] = @tweet.errors.messages
-    end
-    redirect_to root_path
+    flash[:error] = @tweet.errors.full_messages
+    redirect_to tweets_path user_id: @tweet.user
   end
 
   def update
     @tweet = Tweet.find(params[:id])
-    if !@tweet.update_attributes(tweet_params)
-      flash[:errors] = @tweet.errors.messages
-    end
-    redirect_to users_path
+    @tweet.update_attributes(tweet_params)
+    flash[:error] = @tweet.errors.full_messages
+    redirect_to tweets_path user_id: @tweet.user
   end
 
   def destroy

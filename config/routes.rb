@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :relationships, only: [:index, :create, :destroy]
+  resources :relationships, except: [:edit]
   resources :notifications, only: [:index, :update, :destroy]
 
   mount ActionCable.server => '/cable'

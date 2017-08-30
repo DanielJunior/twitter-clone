@@ -1,9 +1,7 @@
-<% unless errors.blank? %>
-    <% errors.each do |error| %>
-        <div class="alert alert-danger">
+<% unless notice.blank? %>
+        <div class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <strong><%= error %> </strong></div>
-    <% end %>
+          <strong><%= notice %> </strong></div>
 <% end %>

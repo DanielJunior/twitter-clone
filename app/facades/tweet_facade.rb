@@ -14,7 +14,4 @@ class TweetFacade < DefaultFacade
     !@user.blank? && (@user.id != @current_user.id) ? "Tweets from #{@user.name}" : "My tweets:"
   end
 
-  def errors
-    @user.blank? ? {"User": ["not found!"]} : nil
-  end
 end

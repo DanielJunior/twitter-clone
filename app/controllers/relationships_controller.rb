@@ -6,14 +6,20 @@ class RelationshipsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:id])
-    current_user.follow user
+    message = RelationshipService.follow current_user, params[:following_id]
+    flash[:notice] = message
     redirect_to relationships_path(type: Relationship::FOLLOWING)
   end
 
   def destroy
-    user = User.find(params[:id])
-    current_user.unfollow user
+    message = RelationshipService.unfollow current_user, params[:following_id]
+    flash[:notice] = message
     redirect_to relationships_path(type: Relationship::FOLLOWING)
+  end
+
+  def update
+    message = RelationshipService.update params[:id]
+    flash[:notice] = message
+    redirect_to relationships_path(type: Relationship::FOLLOWERS)
   end
 end

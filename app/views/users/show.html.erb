@@ -20,14 +20,16 @@
 
       <% if current_user.id != @facade.user.id %>
           <div class="small-margin-top">
-            <% if !current_user.following?(@facade.user) %>
-                <%= link_to relationships_path(id: @facade.user), class: "btn btn-success", method: :post do %>
+            <% if current_user.can_follow?(@facade.user) %>
+                <%= link_to relationships_path(following_id: @facade.user), class: "btn btn-success", method: :post do %>
                     <span class="glyphicon glyphicon-ok"></span> Follow
                 <% end %>
-            <% else %>
-                <%= link_to relationship_path(@facade.user), class: "btn btn-danger", method: :delete do %>
+            <% elsif current_user.following?(@facade.user) %>
+                <%= link_to relationship_path(following_id: @facade.user), class: "btn btn-danger", method: :delete do %>
                     <span class="glyphicon glyphicon-remove"></span> Unfollow
                 <% end %>
+            <% else %>
+                <span class="glyphicon glyphicon-info-sign"></span> Waiting for pending follow request
             <% end %>
           </div>
       <% end %>
