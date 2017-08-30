@@ -18,7 +18,7 @@ class RelationshipsController < ApplicationController
   end
 
   def update
-    message = RelationshipService.update params[:id]
+    message = RelationshipService.update params[:id], params[:type]
     flash[:notice] = message
     redirect_to relationships_path(type: Relationship::FOLLOWERS)
   end

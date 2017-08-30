@@ -12,11 +12,21 @@ class RelationshipService
     "You stop to follow #{following.name}!"
   end
 
-  def self.update id
+  def self.update id, action
     @relationship = Relationship.find(id)
-    @relationship.accept
     @relationship.notification.toggle_active!
-    "#{@relationship.follower.name} now is your follower!"
+    @relationship.perform_action action
+    message_for_action @relationship.follower, action
+  end
+
+  private
+  def self.message_for_action follower, action
+    case action
+      when Relationship::ACCEPT
+        "#{follower.name} now is your follower!"
+      else
+        "#{follower.name} request to follow you was deleted!"
+    end
   end
 
 end

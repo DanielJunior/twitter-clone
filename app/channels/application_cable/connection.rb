@@ -11,11 +11,7 @@ module ApplicationCable
 
     def find_verified_user # this checks whether a user is authenticated with devise
       verified_user = env['warden'].user
-      if verified_user
-        verified_user
-      else
-        reject_unauthorized_connection
-      end
+      verified_user.blank? ? reject_unauthorized_connection : verified_user
     end
   end
 end

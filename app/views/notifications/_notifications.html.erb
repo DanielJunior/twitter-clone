@@ -17,12 +17,12 @@
             <% end %>
 
 
-            <% if !notification.relationship.accepted? %>
-
-                <%= link_to relationship_path(id: notification.relationship), method: :put do %>
-                    <!--<#% if notification.read %>-->
+            <% if notification.relationship && !notification.relationship.accepted? %>
+                <%= link_to relationship_path(id: notification.relationship, type: Relationship::ACCEPT), method: :put do %>
                     <span class="right glyphicon glyphicon-thumbs-up sm-margin-left"></span>
-                    <!--<#% end %>-->
+                <% end %>
+                <%= link_to relationship_path(id: notification.relationship, type: Relationship::REJECT), method: :put do %>
+                    <span class="right glyphicon glyphicon-thumbs-down sm-margin-left"></span>
                 <% end %>
             <% end %>
 
